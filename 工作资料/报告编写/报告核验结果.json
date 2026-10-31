@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-31T04:26:17.982673+00:00",
+  "checkedAt": "2026-10-31T06:53:03.367729+00:00",
   "checks": {
     "pdf_pages_30": true,
     "name_correct": true,
@@ -19,12 +19,12 @@
   "visualReview": "30 pages inspected; changed pages 1,4,9-14,26,27,30 inspected again after final revision",
   "files": {
     "工作资料\\实验报告初稿.docx": {
-      "bytes": 4067463,
-      "sha256": "93d8c5ac1ae6bedf10802bd324a63748bda1f79e1c92039473d0f3f7049dfe3a"
+      "bytes": 4067182,
+      "sha256": "8dad63b43b3ebab5539abe2d630afaa966e939f0fea187217e1b305a4f589692"
     },
     "实验报告初稿.pdf": {
-      "bytes": 3692758,
-      "sha256": "3cf64eccb12d6c86e8746d4dc0770639b54c5f0bd6759374a25a3b0860cdd757"
+      "bytes": 3686597,
+      "sha256": "1de3669deedcf3179abf736e442717bd4dc0c1f89c661ded140b4ff97a72cc8e"
     }
   },
   "requirements": [
@@ -179,5 +179,16 @@
     "真实后续Git记录",
     "最后打包提交"
   ],
-  "lastEdit": "删除第26页后续提交事项标题及两段正文；其余页面文本保持一致。第26、27页已目视核验；首页版本说明仍已删除。"
+  "lastEdit": "完成UI工具实际核验与本地Git记录，精简重复过程说明；30页，22条需求保留。修改后第15、24、25、26、27、29、30页已目视检查，其余页渲染哈希一致。",
+  "latestChecks": {
+    "pages30": true,
+    "all22Requirements": true,
+    "removedNotesStayRemoved": true,
+    "realNativeUIVerification": true,
+    "nativePNGCount7": true,
+    "gitBaselineReferenced": true,
+    "gitUICommitReferenced": true,
+    "noReplacementGlyph": true,
+    "allTextWithinPages": true
+  }
 }
