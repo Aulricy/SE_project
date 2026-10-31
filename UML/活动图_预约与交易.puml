@@ -1,0 +1,93 @@
+@startuml
+title 预约与交易活动图
+skinparam shadowing false
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 15
+skinparam ArrowFontSize 13
+skinparam ArrowColor #475569
+skinparam ActivityBackgroundColor #EFF6FF
+skinparam ActivityBorderColor #64748B
+skinparam ActivityDiamondBackgroundColor #FFF7ED
+skinparam ActivityDiamondBorderColor #B45309
+skinparam LegendBackgroundColor #F8FAFC
+skinparam LegendBorderColor #94A3B8
+
+
+
+start
+:买家：选择商品，主动发起预约;
+:系统：校验身份、商品归属、状态和版本\n原子尝试建立唯一有效预约;
+if (预约成功？) then (是)
+  :系统：商品为已预约、预约为待确认\n保存预约时间和当时价格;
+else (否)
+  :系统：显示失败原因，数据不变\n结束本次预约请求;
+  stop
+endif
+
+:系统：等待待确认预约的处理;
+if (收到卖家确认请求？) then (是)
+    :卖家：提交确认预约请求;
+    :系统：原子校验并尝试确认\n仅所属卖家且预约为待确认;
+    if (确认成功？) then (是)
+      :系统：商品与预约均为已确认;
+    else (否)
+      :系统：提示失败原因，数据不变\n结束本次请求，刷新查看状态;
+      stop
+    endif
+elseif (收到取消或拒绝请求？) then (是)
+    :系统：接收买家取消或卖家取消、拒绝\n检查原因、归属、状态和版本;
+    if (取消成功？) then (是)
+      :系统：预约设为已取消\n商品恢复已发布，保存取消信息\n本次预约结束，可主动重新预约;
+      stop
+    else (否)
+      :系统：提示具体原因，数据不变\n原因缺失则填写后重新提交;
+      stop
+    endif
+else (管理员屏蔽已生效)
+    :系统：管理员屏蔽已生效\n商品已屏蔽、预约已取消\n保留原因，本次预约终止;
+    stop
+endif
+
+:买家：与卖家自行联系\n安排线下付款和交付;
+:系统：等待已确认预约的处理;
+if (收到买家完成请求？) then (是)
+    :买家：线下交付后提交完成请求;
+    :系统：原子校验并尝试完成\n仅对应买家且两类记录均已确认;
+    if (完成成功？) then (是)
+      :系统：商品与预约均已完成\n记录首次完成时间，保留历史;
+      stop
+    else (否)
+      :系统：提示失败原因，数据不变\n结束本次请求，刷新查看状态;
+      stop
+    endif
+elseif (收到任一方取消请求？) then (是)
+    :系统：接收买家或卖家的取消请求\n原子校验并尝试取消;
+    if (取消成功？) then (是)
+      :系统：预约设为已取消\n商品恢复已发布，保存取消信息\n本次预约结束，可主动重新预约;
+      stop
+    else (否)
+      :系统：提示具体原因，数据不变\n原因缺失则填写后重新提交;
+      stop
+    endif
+else (管理员屏蔽已生效)
+    :系统：管理员屏蔽已生效\n商品已屏蔽、预约已取消\n保留原因，本次预约终止;
+    stop
+endif
+
+legend bottom left
+  <b>范围与出口</b>
+  · 节点前的角色名称表示执行者。
+  · 本图处理一次预约；已取消、已完成、因屏蔽终止与请求失败均有独立出口。
+  · 结束本次请求不表示交易完成；失败后按最新状态重新操作。
+  · 取消后由买家主动发起新预约，建立新记录；图中不自动重试或恢复旧预约。
+  · 屏蔽分支表示管理员操作已成功生效，商品已屏蔽且有效预约已联动取消。
+
+  <b>处理规则</b>
+  · 不能预约本人商品；同一商品最多一条待确认或已确认预约。
+  · 买卖双方均可取消待确认、已确认预约；卖家拒绝待确认预约也按取消处理。
+  · 每次写操作原子检查权限、状态和版本，联动更新与关键日志一起提交。
+  · 取消原因不能为空，保存取消人、原因和时间；失败不改变业务数据；重复请求不重复生效。
+  · 屏蔽与取消有效预约一起成功或一起回滚，商品保持已屏蔽。
+  · 已完成交易不能取消；金额沿用预约价格，完成时间仅首次成功时写入。
+endlegend
+@enduml

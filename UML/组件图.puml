@@ -1,0 +1,77 @@
+@startuml
+title 二手交易平台组件图
+top to bottom direction
+
+skinparam shadowing false
+skinparam componentStyle uml2
+skinparam linetype polyline
+skinparam nodesep 45
+skinparam ranksep 55
+skinparam defaultFontSize 16
+skinparam ArrowFontSize 13
+skinparam ArrowColor #475569
+skinparam ComponentBorderColor #64748B
+skinparam ComponentBackgroundColor #DBEAFE
+skinparam PackageBorderColor #94A3B8
+skinparam PackageBackgroundColor #F8FAFC
+skinparam LegendBackgroundColor #F8FAFC
+skinparam LegendBorderColor #94A3B8
+
+component "Web 界面\n普通用户页面 · 管理员页面" as Web #E0F2FE
+
+component "业务处理（同一 Web 应用）" as Backend #F8FAFC {
+
+  component "商品管理\n草稿 · 审核 · 查询\n下架 · 屏蔽与恢复" as Product #DBEAFE
+  component "预约与交易\n预约 · 确认 · 取消 · 完成\n历史记录 · 重复请求处理" as Reservation #DBEAFE
+  component "用户与权限\n注册 · 登录 · 权限检查\n管理员设置" as Auth #DCFCE7
+  component "操作日志\n内部写入\n管理员只读查询" as Logs #FEF3C7
+  component "交易统计\n完成笔数 · 预约金额" as Statistics #F3E8FF
+
+  Product .right.> Reservation : 屏蔽时取消预约
+  Product .down.> Auth : 校验权限
+  Reservation .down.> Auth : 校验权限
+  Product ..> Logs : 记录操作
+  Reservation .down.> Logs : 记录操作
+  Logs .left.> Auth : 查询鉴权
+  Statistics .up.> Auth : 管理员鉴权
+
+  Auth -[hidden]down-> Statistics
+}
+
+database "关系数据库\n用户 · 商品 · 预约\n请求记录 · 操作日志" as DB #E2E8F0
+folder "本地图片存储\n商品图片文件" as Images #FFEDD5
+
+' 外层组件集中表示五个业务组件提供的 HTTP 业务接口，
+' 避免重复绘制五条跨层界面调用线。
+Web .down.> Backend : HTTP 业务接口
+
+' 数据访问统一连到业务整体；各组件的具体读写范围见图例。
+Backend .down.> DB : 业务数据读写
+Backend .down.> Images : 商品图片存取
+Images -[hidden]right-> DB
+Statistics -[hidden]down-> Images
+Statistics -[hidden]down-> DB
+
+legend bottom left
+  <b>组件与依赖</b>
+  虚线箭头 A → B 表示 A 使用 B 提供的功能，不表示时间顺序。
+  业务处理为组合组件，内部五个组件属于同一 Web 应用。
+  Web 界面通过 HTTP 接口使用五个业务组件，不直接操作数据库。
+
+  <b>各组件的数据访问范围</b>
+  | 组件 | 数据访问 |
+  | 用户与权限 | 读写用户 |
+  | 商品管理 | 读写商品，保存与读取商品图片 |
+  | 预约与交易 | 读写预约、请求记录及需要联动更新的商品 |
+  | 交易统计 | 只读已完成预约并汇总 |
+  | 操作日志 | 写入与查询日志，不提供修改和删除 |
+
+  <b>协作约束</b>
+  · 各受限操作均在服务端检查身份、权限及对象归属。
+  · 日志写入仅供内部业务调用；全平台日志查询仅面向管理员。
+  · 商品与预约的联动更新使用同一数据库事务。
+  · 屏蔽商品与取消有效预约一起成功或一起回滚，商品保持已屏蔽。
+  · 图片文件保存在本地，数据库保存图片路径。
+endlegend
+
+@enduml

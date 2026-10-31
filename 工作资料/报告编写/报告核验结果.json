@@ -1,0 +1,183 @@
+{
+  "checkedAt": "2026-10-31T04:26:17.982673+00:00",
+  "checks": {
+    "pdf_pages_30": true,
+    "name_correct": true,
+    "student_id_correct": true,
+    "all_22_requirement_ids": true,
+    "preparation_questions_excluded": true,
+    "all_pages_have_substance": true,
+    "no_replacement_glyph": true,
+    "30_rendered_pages": true,
+    "title_no_borders": true,
+    "embedded_17_figures": true,
+    "all_text_within_pages": true
+  },
+  "allPassed": true,
+  "renderMethod": "Microsoft Word native PDF export and bundled Poppler",
+  "standardRendererUnavailable": "LibreOffice soffice.exe absent; render_docx.py attempted, then used native Word",
+  "visualReview": "30 pages inspected; changed pages 1,4,9-14,26,27,30 inspected again after final revision",
+  "files": {
+    "工作资料\\实验报告初稿.docx": {
+      "bytes": 4067463,
+      "sha256": "93d8c5ac1ae6bedf10802bd324a63748bda1f79e1c92039473d0f3f7049dfe3a"
+    },
+    "实验报告初稿.pdf": {
+      "bytes": 3692758,
+      "sha256": "3cf64eccb12d6c86e8746d4dc0770639b54c5f0bd6759374a25a3b0860cdd757"
+    }
+  },
+  "requirements": [
+    "001",
+    "002",
+    "003",
+    "004",
+    "005",
+    "006",
+    "007",
+    "008",
+    "009",
+    "010",
+    "011",
+    "012",
+    "013",
+    "014",
+    "015",
+    "016",
+    "017",
+    "018",
+    "019",
+    "020",
+    "021",
+    "022"
+  ],
+  "bounds": [
+    {
+      "page": 1,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 2,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 3,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 4,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 5,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 6,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 7,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 8,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 9,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 10,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 11,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 12,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 13,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 14,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 15,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 16,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 17,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 18,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 19,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 20,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 21,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 22,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 23,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 24,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 25,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 26,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 27,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 28,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 29,
+      "outsidePageCharacters": 0
+    },
+    {
+      "page": 30,
+      "outsidePageCharacters": 0
+    }
+  ],
+  "pending": [
+    "本人核对正文及个人体会",
+    "在实际UI设计工具打开并验证编辑",
+    "真实后续Git记录",
+    "最后打包提交"
+  ],
+  "lastEdit": "删除第26页后续提交事项标题及两段正文；其余页面文本保持一致。第26、27页已目视核验；首页版本说明仍已删除。"
+}

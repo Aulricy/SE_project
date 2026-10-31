@@ -1,0 +1,80 @@
+@startuml
+title 商品发布与审核活动图
+skinparam shadowing false
+skinparam defaultFontName Microsoft YaHei
+skinparam defaultFontSize 15
+skinparam ArrowFontSize 13
+skinparam ArrowColor #475569
+skinparam ActivityBackgroundColor #EFF6FF
+skinparam ActivityBorderColor #64748B
+skinparam ActivityDiamondBackgroundColor #FFF7ED
+skinparam ActivityDiamondBorderColor #B45309
+skinparam LegendBackgroundColor #F8FAFC
+skinparam LegendBorderColor #94A3B8
+
+
+
+start
+:卖家：创建或打开自己的商品草稿;
+repeat
+  :卖家：编辑并保存草稿;
+  if (现在提交审核？) then (是)
+    :系统：检查权限、草稿状态和版本\n检查必填项与价格;
+    if (提交校验通过？) then (是)
+      :系统：商品设为待审核\n等待审核、撤回或屏蔽处理;
+      if (收到卖家撤回请求？) then (是)
+        :卖家：提交撤回请求;
+        :系统：校验并尝试撤回\n成功则退回草稿;
+      elseif (收到管理员屏蔽请求？) then (是)
+        :管理员：填写屏蔽原因;
+        :系统：校验并尝试屏蔽\n成功则商品设为已屏蔽;
+      else (管理员审核)
+        :管理员：审核商品;
+        if (审核通过？) then (是)
+          :系统：校验并尝试审核通过\n成功则发布并记录发布时间;
+        else (否)
+          :管理员：填写驳回原因;
+          :系统：校验并尝试驳回\n成功则保存原因并退回草稿;
+        endif
+      endif
+      if (本次处理失败？) then (是)
+        :系统：提示失败原因\n不覆盖当前数据;
+      endif
+    else (否)
+      :系统：提示具体错误\n保留已填写内容;
+    endif
+
+    if (商品当前为已发布？) then (是)
+      :系统：显示商品已发布\n本次发布流程结束;
+      stop
+    elseif (商品当前为已屏蔽？) then (是)
+      :系统：保留屏蔽原因\n终止本次发布流程;
+      stop
+    elseif (商品当前为草稿？) then (是)
+      :系统：保留草稿及适用处理原因;
+    else (待审核或其他状态)
+      :系统：商品尚未发布或状态已变化\n刷新后按当前状态处理;
+      stop
+    endif
+  else (否，仅保存)
+    :系统：结束本次编辑\n商品保留为草稿;
+    stop
+  endif
+repeat while (继续修改并重新提交？) is (是) not (否)
+:卖家：结束本次编辑\n商品保留为草稿;
+stop
+
+legend bottom left
+  <b>范围与出口</b>
+  · 节点前的角色名称表示执行者。
+  · 仅已发布表示发布完成；已屏蔽、草稿、其他状态各有独立出口。
+  · 发布后可进入预约流程；预约时仍须重新检查商品是否可预约。
+  · 已屏蔽商品仅管理员可恢复为草稿，再次发布仍须重新审核。
+
+  <b>处理规则</b>
+  · 编辑和撤回限所属卖家；审核、屏蔽限管理员。
+  · 草稿可不完整；提交时必填项有效，价格大于 0 且最多两位小数。
+  · 状态与版本校验、业务更新和关键日志保存须一起成功或一起回滚。
+  · 驳回和屏蔽须有原因；冲突请求失败不覆盖已成功结果，用户刷新后再操作。
+endlegend
+@enduml
