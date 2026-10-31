@@ -1,0 +1,11 @@
+本地Git记录
+
+分支：lab2-design
+基线：74b00e6，记录2026-10-31当前已有成果。
+提交者：Codex <codex@local.invalid>。文件生成和本轮核验、报告修改由AI执行；用户决定修改范围和设计取舍。
+未回填此前提交；早期.puml和已有diff作为文件证据保留。未推送GitHub。
+
+查看：git log --oneline
+检查改动：git status --short
+查看文本差异：git diff <基线提交> HEAD -- 工作资料/报告编写/生成报告.py
+工具、报告分页检查图等可再生成内容已通过.gitignore排除。
