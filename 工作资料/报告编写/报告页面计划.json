@@ -16,6 +16,10 @@
     "landscape": false
   },
   {
+    "title": "长图阅读导航",
+    "landscape": true
+  },
+  {
     "title": "类图中的业务实体与关联",
     "landscape": false
   },
@@ -92,6 +96,10 @@
     "landscape": true
   },
   {
+    "title": "关键异常界面与设计理由",
+    "landscape": true
+  },
+  {
     "title": "五 验证结果与实现边界",
     "landscape": false
   },
@@ -113,6 +121,18 @@
   },
   {
     "title": "AI 使用过程续表2",
+    "landscape": false
+  },
+  {
+    "title": "修改案例一 类图的简化与约束补充",
+    "landscape": false
+  },
+  {
+    "title": "修改案例二 活动图拆分与状态出口修正",
+    "landscape": false
+  },
+  {
+    "title": "修改案例三 连续预约不同商品的记录修正",
     "landscape": false
   },
   {

@@ -1,194 +1,239 @@
 {
-  "checkedAt": "2026-10-31T06:53:03.367729+00:00",
+  "checkedAt": "2026-10-31T15:08:13.923890+08:00",
   "checks": {
-    "pdf_pages_30": true,
-    "name_correct": true,
-    "student_id_correct": true,
-    "all_22_requirement_ids": true,
-    "preparation_questions_excluded": true,
-    "all_pages_have_substance": true,
-    "no_replacement_glyph": true,
-    "30_rendered_pages": true,
-    "title_no_borders": true,
-    "embedded_17_figures": true,
-    "all_text_within_pages": true
+    "pages35": true,
+    "embeddedFigures22": true,
+    "coverCorrect": true,
+    "all22Requirements": true,
+    "threeDetailedCases": true,
+    "overallDiagramNavigation": true,
+    "UIReasons8": true,
+    "twoExceptionComparisons": true,
+    "AIUsageRound28": true,
+    "acceptedAdviceAttributed": true,
+    "AIBugReproductionAttributed": true,
+    "removedNotesStayRemoved": true,
+    "preparatoryQuestionsExcluded": true,
+    "noReplacementGlyph": true,
+    "continuedSequenceHeaderEmbedded": true,
+    "continuedSequenceHeaderLabels6": true,
+    "allContentWithinPages": true,
+    "originalDesignAndUIUnchanged": true
   },
   "allPassed": true,
-  "renderMethod": "Microsoft Word native PDF export and bundled Poppler",
-  "standardRendererUnavailable": "LibreOffice soffice.exe absent; render_docx.py attempted, then used native Word",
-  "visualReview": "30 pages inspected; changed pages 1,4,9-14,26,27,30 inspected again after final revision",
-  "files": {
-    "工作资料\\实验报告初稿.docx": {
-      "bytes": 4067182,
-      "sha256": "8dad63b43b3ebab5539abe2d630afaa966e939f0fea187217e1b305a4f589692"
-    },
-    "实验报告初稿.pdf": {
-      "bytes": 3686597,
-      "sha256": "1de3669deedcf3179abf736e442717bd4dc0c1f89c661ded140b4ff97a72cc8e"
-    }
-  },
-  "requirements": [
-    "001",
-    "002",
-    "003",
-    "004",
-    "005",
-    "006",
-    "007",
-    "008",
-    "009",
-    "010",
-    "011",
-    "012",
-    "013",
-    "014",
-    "015",
-    "016",
-    "017",
-    "018",
-    "019",
-    "020",
-    "021",
-    "022"
-  ],
+  "pages": 35,
+  "visualReview": "全35页已检查；末次仅第32、34页渲染变化，已再次目视复核。",
   "bounds": [
     {
       "page": 1,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 2,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 3,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 4,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 5,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 6,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 7,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 8,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 9,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 10,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 11,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 12,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 13,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 14,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 15,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 16,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 17,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 18,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 19,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 20,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 21,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 22,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 23,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 24,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 25,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 26,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 27,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 28,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 29,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
     },
     {
       "page": 30,
-      "outsidePageCharacters": 0
+      "outsideCharacters": 0,
+      "outsideImages": 0
+    },
+    {
+      "page": 31,
+      "outsideCharacters": 0,
+      "outsideImages": 0
+    },
+    {
+      "page": 32,
+      "outsideCharacters": 0,
+      "outsideImages": 0
+    },
+    {
+      "page": 33,
+      "outsideCharacters": 0,
+      "outsideImages": 0
+    },
+    {
+      "page": 34,
+      "outsideCharacters": 0,
+      "outsideImages": 0
+    },
+    {
+      "page": 35,
+      "outsideCharacters": 0,
+      "outsideImages": 0
     }
   ],
+  "files": {
+    "实验报告初稿.pdf": {
+      "bytes": 4096647,
+      "sha256": "6ba1b2b437a565c2da1146aeb9840de07a0aa2a2c1c1218169459a3ef6889d95"
+    },
+    "工作资料\\实验报告初稿.docx": {
+      "bytes": 6916989,
+      "sha256": "6130d2c269429b25ab9d31a657be2b1e6b262e5de9c9e83133fbe918417caf28"
+    }
+  },
+  "pageGuide": {
+    "longDiagramNavigation": 5,
+    "continuedSequence": 15,
+    "UIReasons": [
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "exceptionComparison": 25,
+    "caseStudies": [
+      32,
+      33,
+      34
+    ]
+  },
+  "renderMethod": "Microsoft Word native PDF export and bundled Poppler",
   "pending": [
-    "本人核对正文及个人体会",
-    "在实际UI设计工具打开并验证编辑",
-    "真实后续Git记录",
-    "最后打包提交"
-  ],
-  "lastEdit": "完成UI工具实际核验与本地Git记录，精简重复过程说明；30页，22条需求保留。修改后第15、24、25、26、27、29、30页已目视检查，其余页渲染哈希一致。",
-  "latestChecks": {
-    "pages30": true,
-    "all22Requirements": true,
-    "removedNotesStayRemoved": true,
-    "realNativeUIVerification": true,
-    "nativePNGCount7": true,
-    "gitBaselineReferenced": true,
-    "gitUICommitReferenced": true,
-    "noReplacementGlyph": true,
-    "allTextWithinPages": true
-  }
+    "本人审阅正文和个人体会",
+    "本人实际修改后记录真实提交",
+    "报告定稿与提交打包"
+  ]
 }
