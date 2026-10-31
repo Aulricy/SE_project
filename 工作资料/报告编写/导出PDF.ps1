@@ -1,6 +1,6 @@
-$ErrorActionPreference='Stop'
-$docx='C:\Users\xuson\Desktop\软工实验2\工作资料\实验报告初稿.docx'
-$pdf='C:\Users\xuson\Desktop\软工实验2\实验报告初稿.pdf'
+﻿$ErrorActionPreference='Stop'
+$docx='C:\Users\xuson\Desktop\软工实验2\工作资料\实验报告.docx'
+$pdf='C:\Users\xuson\Desktop\软工实验2\实验报告.pdf'
 $previousWord=@(Get-Process WINWORD -ErrorAction SilentlyContinue)
 $word=$null;$document=$null
 try {

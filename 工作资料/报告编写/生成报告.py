@@ -11,7 +11,7 @@ sys.stdout.reconfigure(encoding='utf-8')
 ROOT=Path(__file__).resolve().parents[1]
 WORK=Path(__file__).resolve().parent
 FIG=WORK/'插图'
-OUT=ROOT/'实验报告初稿.docx'
+OUT=ROOT/'实验报告.docx'
 doc=Document()
 doc.core_properties.title='二手交易平台软件设计与建模实验报告'
 doc.core_properties.subject='软件工程实验二'
@@ -36,7 +36,7 @@ for sec in doc.sections:
 header=doc.sections[0].header.paragraphs[0];header.text='软件工程实验二  二手交易平台';header.style=doc.styles['Normal']
 header.runs[0].font.size=Pt(8);header.paragraph_format.space_after=Pt(0)
 f=doc.sections[0].footer.paragraphs[0];f.alignment=WD_ALIGN_PARAGRAPH.CENTER
-r=f.add_run('初稿  |  ');r.font.size=Pt(8)
+r=f.add_run('');r.font.size=Pt(8)
 fld=OxmlElement('w:fldSimple');fld.set(qn('w:instr'),'PAGE');f._p.append(fld)
 orientation='portrait';page_manifest=[]
 def page(title,landscape=False):
